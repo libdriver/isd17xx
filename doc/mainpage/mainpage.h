@@ -1,6 +1,6 @@
 /**
  * @mainpage  LibDriver ISD17XX
- * @brief     libdriver isd17xx is a full function driver of isd17xx and it can run in both MCU and Linux platform.
+ * @brief     LibDriver ISD17XX is a full function driver of ISD17XX and it can run in both MCU and Linux platform.
  * @version   1.0.0
  * @author    Shifeng Li
  *
