@@ -62,9 +62,9 @@ uint8_t isd17xx_interface_spi_deinit(void)
 
 /**
  * @brief      interface spi bus read
- * @param[in]  reg is the register address
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the length of data buffer
+ * @param[in]  reg register address
+ * @param[out] *buf pointer to a data buffer
+ * @param[in]  len length of data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -77,9 +77,9 @@ uint8_t isd17xx_interface_spi_read(uint8_t reg, uint8_t *buf, uint16_t len)
 
 /**
  * @brief     interface spi bus write
- * @param[in] reg is the register address
- * @param[in] *buf points to a data buffer
- * @param[in] len is the length of data buffer
+ * @param[in] reg register address
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len length of data buffer
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -92,9 +92,9 @@ uint8_t isd17xx_interface_spi_write(uint8_t reg, uint8_t *buf, uint16_t len)
 
 /**
  * @brief      interface spi bus transmit
- * @param[in]  *tx points to a tx data buffer
- * @param[out] *rx points to a rx data buffer
- * @param[in]  len is the length of the data buffer
+ * @param[in]  *tx pointer to a tx data buffer
+ * @param[out] *rx pointer to a rx data buffer
+ * @param[in]  len length of the data buffer
  * @return     status code
  *             - 0 success
  *             - 1 transmit failed
@@ -131,7 +131,7 @@ uint8_t isd17xx_interface_gpio_reset_deinit(void)
 
 /**
  * @brief     interface gpio reset write
- * @param[in] value is the write value
+ * @param[in] value written value
  * @return    status code
  *            - 0 success
  *            - 1 gpio reset write failed
@@ -144,7 +144,7 @@ uint8_t isd17xx_interface_gpio_reset_write(uint8_t value)
 
 /**
  * @brief     interface delay ms
- * @param[in] ms
+ * @param[in] ms time
  * @note      none
  */
 void isd17xx_interface_delay_ms(uint32_t ms)
@@ -154,7 +154,7 @@ void isd17xx_interface_delay_ms(uint32_t ms)
 
 /**
  * @brief     interface print format data
- * @param[in] fmt is the format data
+ * @param[in] fmt format data
  * @note      none
  */
 void isd17xx_interface_debug_print(const char *const fmt, ...)
@@ -164,7 +164,7 @@ void isd17xx_interface_debug_print(const char *const fmt, ...)
 
 /**
  * @brief     interface receive callback
- * @param[in] type is the interrupt type
+ * @param[in] type interrupt type
  * @note      none
  */
 void isd17xx_interface_receive_callback(uint16_t type)

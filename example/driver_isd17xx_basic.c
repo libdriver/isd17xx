@@ -40,7 +40,7 @@ static isd17xx_handle_t gs_handle;        /**< isd17xx handle */
 
 /**
  * @brief     basic example init
- * @param[in] type is the chip type
+ * @param[in] type chip type
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -281,8 +281,8 @@ uint8_t isd17xx_basic_global_erase(void)
 
 /**
  * @brief     basic example erase
- * @param[in] start_addr is the start address
- * @param[in] end_addr is the end address
+ * @param[in] start_addr start address
+ * @param[in] end_addr end address
  * @return    status code
  *            - 0 success
  *            - 1 erase failed
@@ -333,8 +333,8 @@ uint8_t isd17xx_basic_erase(uint16_t start_addr, uint16_t end_addr)
 
 /**
  * @brief     basic example record
- * @param[in] start_addr is the start address
- * @param[in] end_addr is the end address
+ * @param[in] start_addr start address
+ * @param[in] end_addr end address
  * @return    status code
  *            - 0 success
  *            - 1 record failed
@@ -363,8 +363,8 @@ uint8_t isd17xx_basic_record(uint16_t start_addr, uint16_t end_addr)
 
 /**
  * @brief     basic example play
- * @param[in] start_addr is the start address
- * @param[in] end_addr is the end address
+ * @param[in] start_addr start address
+ * @param[in] end_addr end address
  * @return    status code
  *            - 0 success
  *            - 1 play failed
@@ -393,7 +393,7 @@ uint8_t isd17xx_basic_play(uint16_t start_addr, uint16_t end_addr)
 
 /**
  * @brief     basic example poll
- * @param[in] status is the poll status
+ * @param[in] status poll status
  * @return    status code
  *            - 0 success
  *            - 1 poll failed
