@@ -40,7 +40,7 @@ static isd17xx_handle_t gs_handle;        /**< isd17xx handle */
 
 /**
  * @brief     play record test
- * @param[in] type is the chip type
+ * @param[in] type chip type
  * @return    status code
  *            - 0 success
  *            - 1 test failed

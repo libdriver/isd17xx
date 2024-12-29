@@ -78,10 +78,10 @@
 
 /**
  * @brief      write and read bytes
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *tx points to a tx data buffer
- * @param[out] *rx points to a rx data buffer
- * @param[in]  len is the length of the data buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *tx pointer to a tx data buffer
+ * @param[out] *rx pointer to a rx data buffer
+ * @param[in]  len length of the data buffer
  * @return     status code
  *             - 0 success
  *             - 1 spi write and read failed
@@ -101,10 +101,10 @@ static uint8_t a_isd17xx_spi_transmit(isd17xx_handle_t *handle, uint8_t *tx, uin
 
 /**
  * @brief      read bytes
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[in]  reg is the register address
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[in]  reg register address
+ * @param[out] *buf pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 spi read failed
@@ -124,10 +124,10 @@ static uint8_t a_isd17xx_spi_read(isd17xx_handle_t *handle, uint8_t reg, uint8_t
 
 /**
  * @brief     write bytes
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] reg is the register address
- * @param[in] *buf points to a data buffer
- * @param[in] len is the data length
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] reg register address
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 spi write failed
@@ -147,11 +147,11 @@ static uint8_t a_isd17xx_spi_write(isd17xx_handle_t *handle, uint8_t reg, uint8_
 
 /**
  * @brief     check the status
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] prev_ms is the prev delay in ms
- * @param[in] check_status is the check status bit
- * @param[in] status is the check status
- * @param[in] timeout_ms is the timeout in ms
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] prev_ms prev delay in ms
+ * @param[in] check_status check status bit
+ * @param[in] status check status
+ * @param[in] timeout_ms timeout in ms
  * @return    status code
  *            - 0 success
  *            - 1 check status failed
@@ -253,7 +253,7 @@ static uint8_t a_isd17xx_check_status(isd17xx_handle_t *handle, uint32_t prev_ms
 
 /**
  * @brief     power up
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 power up failed
@@ -290,7 +290,7 @@ uint8_t isd17xx_power_up(isd17xx_handle_t *handle)
 
 /**
  * @brief     stop
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 stop failed
@@ -327,7 +327,7 @@ uint8_t isd17xx_stop(isd17xx_handle_t *handle)
 
 /**
  * @brief     reset
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 reset failed
@@ -363,7 +363,7 @@ uint8_t isd17xx_reset(isd17xx_handle_t *handle)
 
 /**
  * @brief     clear interrupt
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 clear interrupt failed
@@ -399,9 +399,9 @@ uint8_t isd17xx_clear_interrupt(isd17xx_handle_t *handle)
 
 /**
  * @brief      get the status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[in]  *status1 points to a status1 buffer
- * @param[out] *status2 points to a status2 buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[in]  *status1 pointer to a status1 buffer
+ * @param[out] *status2 pointer to a status2 buffer
  * @return     status code
  *             - 0 success
  *             - 1 get status failed
@@ -454,7 +454,7 @@ uint8_t isd17xx_get_status(isd17xx_handle_t *handle, uint16_t *status1, uint8_t 
 
 /**
  * @brief     power down
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 power down failed
@@ -490,8 +490,8 @@ uint8_t isd17xx_power_down(isd17xx_handle_t *handle)
 
 /**
  * @brief      get the device id
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[in]  *id points to an id buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[in]  *id pointer to an id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get device id failed
@@ -532,7 +532,7 @@ uint8_t isd17xx_get_device_id(isd17xx_handle_t *handle, uint8_t *id)
 
 /**
  * @brief     play
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 play failed
@@ -570,7 +570,7 @@ uint8_t isd17xx_play(isd17xx_handle_t *handle)
 
 /**
  * @brief     record
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 record failed
@@ -608,7 +608,7 @@ uint8_t isd17xx_record(isd17xx_handle_t *handle)
 
 /**
  * @brief     erase
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 erase failed
@@ -646,7 +646,7 @@ uint8_t isd17xx_erase(isd17xx_handle_t *handle)
 
 /**
  * @brief     global erase
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 global erase failed
@@ -684,7 +684,7 @@ uint8_t isd17xx_global_erase(isd17xx_handle_t *handle)
 
 /**
  * @brief     next
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 next failed
@@ -722,7 +722,7 @@ uint8_t isd17xx_next(isd17xx_handle_t *handle)
 
 /**
  * @brief     check memory
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 check memory failed
@@ -758,8 +758,8 @@ uint8_t isd17xx_check_memory(isd17xx_handle_t *handle)
 
 /**
  * @brief      read the play point
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *point points to a play point buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *point pointer to a play point buffer
  * @return     status code
  *             - 0 success
  *             - 1 read play point failed
@@ -801,8 +801,8 @@ uint8_t isd17xx_read_play_point(isd17xx_handle_t *handle, uint16_t *point)
 
 /**
  * @brief      read the record point
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *point points to a record point buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *point pointer to a record point buffer
  * @return     status code
  *             - 0 success
  *             - 1 read record point failed
@@ -844,8 +844,8 @@ uint8_t isd17xx_read_record_point(isd17xx_handle_t *handle, uint16_t *point)
 
 /**
  * @brief     set the volume
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] vol is the set volume
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] vol set volume
  * @return    status code
  *            - 0 success
  *            - 1 set volume failed
@@ -916,8 +916,8 @@ uint8_t isd17xx_set_volume(isd17xx_handle_t *handle, uint8_t vol)
 
 /**
  * @brief      get the volume
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *vol points to a volume buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *vol pointer to a volume buffer
  * @return     status code
  *             - 0 success
  *             - 1 get volume failed
@@ -958,8 +958,8 @@ uint8_t isd17xx_get_volume(isd17xx_handle_t *handle, uint8_t *vol)
 
 /**
  * @brief     enable or disable the monitor input
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set monitor input failed
@@ -1022,8 +1022,8 @@ uint8_t isd17xx_set_monitor_input(isd17xx_handle_t *handle, isd17xx_bool_t enabl
 
 /**
  * @brief      get the monitor input status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get monitor input failed
@@ -1064,8 +1064,8 @@ uint8_t isd17xx_get_monitor_input(isd17xx_handle_t *handle, isd17xx_bool_t *enab
 
 /**
  * @brief     enable or disable the mix input
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set mix input failed
@@ -1128,8 +1128,8 @@ uint8_t isd17xx_set_mix_input(isd17xx_handle_t *handle, isd17xx_bool_t enable)
 
 /**
  * @brief      get the mix input status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get mix input failed
@@ -1170,8 +1170,8 @@ uint8_t isd17xx_get_mix_input(isd17xx_handle_t *handle, isd17xx_bool_t *enable)
 
 /**
  * @brief     enable or disable sound effect editing
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set sound effect editing failed
@@ -1234,8 +1234,8 @@ uint8_t isd17xx_set_sound_effect_editing(isd17xx_handle_t *handle, isd17xx_bool_
 
 /**
  * @brief      get the sound effect editing status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get sound effect editing failed
@@ -1276,8 +1276,8 @@ uint8_t isd17xx_get_sound_effect_editing(isd17xx_handle_t *handle, isd17xx_bool_
 
 /**
  * @brief     enable or disable spi ft
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set spi ft failed
@@ -1340,8 +1340,8 @@ uint8_t isd17xx_set_spi_ft(isd17xx_handle_t *handle, isd17xx_bool_t enable)
 
 /**
  * @brief      get the spi ft status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get spi ft failed
@@ -1382,8 +1382,8 @@ uint8_t isd17xx_get_spi_ft(isd17xx_handle_t *handle, isd17xx_bool_t *enable)
 
 /**
  * @brief     set the analog output type
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] output is the analog output type
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] output analog output type
  * @return    status code
  *            - 0 success
  *            - 1 set analog output failed
@@ -1446,8 +1446,8 @@ uint8_t isd17xx_set_analog_output(isd17xx_handle_t *handle, isd17xx_analog_outpu
 
 /**
  * @brief      get the analog output type
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *output points to an analog output type buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *output pointer to an analog output type buffer
  * @return     status code
  *             - 0 success
  *             - 1 get analog output failed
@@ -1488,8 +1488,8 @@ uint8_t isd17xx_get_analog_output(isd17xx_handle_t *handle, isd17xx_analog_outpu
 
 /**
  * @brief     enable or disable pwm speaker
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set pwm speaker failed
@@ -1552,8 +1552,8 @@ uint8_t isd17xx_set_pwm_speaker(isd17xx_handle_t *handle, isd17xx_bool_t enable)
 
 /**
  * @brief      get the pwm speaker status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get pwm speaker failed
@@ -1594,8 +1594,8 @@ uint8_t isd17xx_get_pwm_speaker(isd17xx_handle_t *handle, isd17xx_bool_t *enable
 
 /**
  * @brief     enable or disable power up analog output
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set power up analog output failed
@@ -1658,8 +1658,8 @@ uint8_t isd17xx_set_power_up_analog_output(isd17xx_handle_t *handle, isd17xx_boo
 
 /**
  * @brief      get the power up analog output status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get power up analog output failed
@@ -1700,8 +1700,8 @@ uint8_t isd17xx_get_power_up_analog_output(isd17xx_handle_t *handle, isd17xx_boo
 
 /**
  * @brief     enable or disable v alert
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set v alert failed
@@ -1764,8 +1764,8 @@ uint8_t isd17xx_set_v_alert(isd17xx_handle_t *handle, isd17xx_bool_t enable)
 
 /**
  * @brief      get the v alert status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get v alert failed
@@ -1806,8 +1806,8 @@ uint8_t isd17xx_get_v_alert(isd17xx_handle_t *handle, isd17xx_bool_t *enable)
 
 /**
  * @brief     enable or disable eom stop playing
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set eom failed
@@ -1870,8 +1870,8 @@ uint8_t isd17xx_set_eom(isd17xx_handle_t *handle, isd17xx_bool_t enable)
 
 /**
  * @brief      get the eom status
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get eom failed
@@ -1912,8 +1912,8 @@ uint8_t isd17xx_get_eom(isd17xx_handle_t *handle, isd17xx_bool_t *enable)
 
 /**
  * @brief     set the volume control type
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] control is the volume control type
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] control volume control type
  * @return    status code
  *            - 0 success
  *            - 1 set volume control failed
@@ -1975,8 +1975,8 @@ uint8_t isd17xx_set_volume_control(isd17xx_handle_t *handle, isd17xx_vol_control
 
 /**
  * @brief      get the volume control type
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *control points to a volume control type buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *control pointer to a volume control type buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -2001,7 +2001,7 @@ uint8_t isd17xx_get_volume_control(isd17xx_handle_t *handle, isd17xx_vol_control
 
 /**
  * @brief     write config to non volatile memory
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 write to nvc failed
@@ -2035,7 +2035,7 @@ uint8_t isd17xx_write_to_nv(isd17xx_handle_t *handle)
 
 /**
  * @brief     load config from non volatile memory
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 load from nvc failed
@@ -2069,9 +2069,9 @@ uint8_t isd17xx_load_from_nv(isd17xx_handle_t *handle)
 
 /**
  * @brief     set the play point
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] start_addr is the start address
- * @param[in] end_addr is the end address
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] start_addr start address
+ * @param[in] end_addr end address
  * @return    status code
  *            - 0 success
  *            - 1 set play failed
@@ -2125,9 +2125,9 @@ uint8_t isd17xx_set_play(isd17xx_handle_t *handle, uint16_t start_addr, uint16_t
 
 /**
  * @brief     set the record point
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] start_addr is the start address
- * @param[in] end_addr is the end address
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] start_addr start address
+ * @param[in] end_addr end address
  * @return    status code
  *            - 0 success
  *            - 1 set record failed
@@ -2181,9 +2181,9 @@ uint8_t isd17xx_set_record(isd17xx_handle_t *handle, uint16_t start_addr, uint16
 
 /**
  * @brief     set the erase point
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] start_addr is the start address
- * @param[in] end_addr is the end address
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] start_addr start address
+ * @param[in] end_addr end address
  * @return    status code
  *            - 0 success
  *            - 1 set erase failed
@@ -2237,7 +2237,7 @@ uint8_t isd17xx_set_erase(isd17xx_handle_t *handle, uint16_t start_addr, uint16_
 
 /**
  * @brief     toggle the enable and disable of the external clock
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 toggle extern clock failed
@@ -2271,7 +2271,7 @@ uint8_t isd17xx_toggle_extern_clock(isd17xx_handle_t *handle)
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 spi or gpio initialization failed
@@ -2514,7 +2514,7 @@ uint8_t isd17xx_init(isd17xx_handle_t *handle)
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 deinit failed
@@ -2562,7 +2562,7 @@ uint8_t isd17xx_deinit(isd17xx_handle_t *handle)
 
 /**
  * @brief     hardware reset
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 reset failed
@@ -2591,7 +2591,7 @@ uint8_t isd17xx_hardware_reset(isd17xx_handle_t *handle)
 
 /**
  * @brief     irq handler
- * @param[in] *handle points to an isd17xx handle structure
+ * @param[in] *handle pointer to an isd17xx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 run failed
@@ -2650,8 +2650,8 @@ uint8_t isd17xx_irq_handler(isd17xx_handle_t *handle)
 
 /**
  * @brief     set the chip type
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] type is the chip type
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] type chip type
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -2671,8 +2671,8 @@ uint8_t isd17xx_set_type(isd17xx_handle_t *handle, isd17xx_type_t type)
 
 /**
  * @brief      get the chip type
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[out] *type points to a chip type buffer
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[out] *type pointer to a chip type buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -2692,10 +2692,10 @@ uint8_t isd17xx_get_type(isd17xx_handle_t *handle, isd17xx_type_t *type)
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to an isd17xx handle structure
- * @param[in] cmd is the command
- * @param[in] *buf points to a data buffer
- * @param[in] len is the data buffer length
+ * @param[in] *handle pointer to an isd17xx handle structure
+ * @param[in] cmd command
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len data buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -2719,10 +2719,10 @@ uint8_t isd17xx_set_reg(isd17xx_handle_t *handle, uint8_t cmd, uint8_t *buf, uin
 
 /**
  * @brief      get the chip register
- * @param[in]  *handle points to an isd17xx handle structure
- * @param[in]  cmd is the command
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the data buffer length
+ * @param[in]  *handle pointer to an isd17xx handle structure
+ * @param[in]  cmd command
+ * @param[out] *buf pointer to a data buffer
+ * @param[in]  len data buffer length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -2746,7 +2746,7 @@ uint8_t isd17xx_get_reg(isd17xx_handle_t *handle, uint8_t cmd, uint8_t *buf, uin
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to an isd17xx info structure
+ * @param[out] *info pointer to an isd17xx info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
