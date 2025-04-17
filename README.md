@@ -10,7 +10,7 @@
 
 The Nuvoton ISD1700 ChipCorder Series is a high quality, fully integrated, single-chip multi-message voice record and playback device ideally suited to a variety of electronic systems. The message duration is user selectable in ranges from 26 seconds to 120 seconds, depending on the specific device. The sampling frequency of each device can also be adjusted from 4 kHz to 12 kHz with an external resistor, giving the user greater flexibility in duration versus recording quality for each application. Operating voltage spans a range from 2.4 V to 5.5 V to ensure that the ISD1700 devices are optimized for a wide range of battery or line-powered applications.
 
-LibDriver ISD17XX is the full function driver of isd17xx launched by LibDriver. It provides record, play and other functions. LibDriver is MISRA compliant.
+LibDriver ISD17XX is a full-featured driver of ISD17XX launched by LibDriver. It provides record, play and other functions. LibDriver is MISRA compliant.
 
 ### Table of Contents
 
