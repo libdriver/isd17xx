@@ -10,7 +10,7 @@
 
 Die Nuvoton ISD1700 ChipCorder-Serie ist ein hochwertiges, vollständig integriertes Ein-Chip-Multi-Message-Sprachaufzeichnungs- und Wiedergabegerät, das sich ideal für eine Vielzahl elektronischer Systeme eignet. Die Nachrichtendauer ist vom Benutzer in Bereichen von 26 Sekunden bis 120 Sekunden wählbar, abhängig vom jeweiligen Gerät. Die Abtastfrequenz jedes Geräts kann auch mit einem externen Widerstand von 4 kHz bis 12 kHz eingestellt werden, was dem Benutzer eine größere Flexibilität in Bezug auf die Dauer gegenüber der Aufnahmequalität für jede Anwendung bietet. Die Betriebsspannung erstreckt sich über einen Bereich von 2,4 V bis 5,5 V, um sicherzustellen, dass die ISD1700-Bausteine für eine Vielzahl von batterie- oder netzbetriebenen Anwendungen optimiert sind.
 
-LibDriver ISD17XX ist der voll funktionsfähige Treiber von isd17xx, der von LibDriver gestartet wurde. Es bietet Aufnahme-, Wiedergabe- und andere Funktionen. LibDriver ist MISRA-konform.
+LibDriver ISD17XX ist der voll funktionsfähige Treiber von ISD17XX, der von LibDriver gestartet wurde. Es bietet Aufnahme-, Wiedergabe- und andere Funktionen. LibDriver ist MISRA-konform.
 
 ### Inhaltsverzeichnis
 
