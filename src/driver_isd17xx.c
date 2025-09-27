@@ -77,6 +77,23 @@
 #define ISD17XX_COMMAND_SET_ERASE       0x82        /**< set erase command */
 
 /**
+ * @brief     high low shift
+ * @param[in] data input data
+ * @return    output data
+ * @note      none
+ */
+static uint8_t a_high_low_shift(uint8_t data)  
+{
+    uint8_t output;
+    
+    output = (data << 4) | (data >> 4);                              /* part 1 */
+    output = ((output << 2) & 0xCC) | ((output >> 2) & 0x33);        /* part 2 */
+    output = ((output << 1) & 0xAA) | ((output >> 1) & 0x55);        /* part 3 */
+    
+    return output;                                                   /* return output */
+}
+
+/**
  * @brief      write and read bytes
  * @param[in]  *handle pointer to an isd17xx handle structure
  * @param[out] *tx pointer to a tx data buffer
@@ -89,14 +106,24 @@
  */
 static uint8_t a_isd17xx_spi_transmit(isd17xx_handle_t *handle, uint8_t *tx, uint8_t *rx, uint16_t len)
 {
+    uint16_t i;
+    
+    for (i = 0; i < len; i++)                         /* loop all */
+    {
+        tx[i] = a_high_low_shift(tx[i]);              /* msb to lsb */
+    }
+    
     if (handle->spi_transmit(tx, rx, len) != 0)       /* spi transmit */
     {
         return 1;                                     /* return error */
     }
-    else
+    
+    for (i = 0; i < len; i++)                         /* loop all */
     {
-        return 0;                                     /* success return 0 */
+        rx[i] = a_high_low_shift(rx[i]);              /* msb to lsb */
     }
+    
+    return 0;                                         /* success return 0 */
 }
 
 /**
@@ -112,14 +139,19 @@ static uint8_t a_isd17xx_spi_transmit(isd17xx_handle_t *handle, uint8_t *tx, uin
  */
 static uint8_t a_isd17xx_spi_read(isd17xx_handle_t *handle, uint8_t reg, uint8_t *buf, uint16_t len)
 {
-    if (handle->spi_read(reg, buf, len) != 0)        /* spi read */
+    uint16_t i;
+    
+    if (handle->spi_read(a_high_low_shift(reg), buf, len) != 0)        /* spi read */
     {
-        return 1;                                    /* return error */
+        return 1;                                                      /* return error */
     }
-    else
+    
+    for (i = 0; i < len; i++)                                          /* loop all */
     {
-        return 0;                                    /* success return 0 */
+        buf[i] = a_high_low_shift(buf[i]);                             /* msb to lsb */
     }
+    
+    return 0;                                                          /* success return 0 */
 }
 
 /**
@@ -135,14 +167,19 @@ static uint8_t a_isd17xx_spi_read(isd17xx_handle_t *handle, uint8_t reg, uint8_t
  */
 static uint8_t a_isd17xx_spi_write(isd17xx_handle_t *handle, uint8_t reg, uint8_t *buf, uint16_t len)
 {
-    if (handle->spi_write(reg, buf, len) != 0)        /* spi write */
+    uint16_t i;
+    
+    for (i = 0; i < len; i++)                                           /* loop all */
     {
-        return 1;                                     /* return error */
+        buf[i] = a_high_low_shift(buf[i]);                              /* msb to lsb */
     }
-    else
+    
+    if (handle->spi_write(a_high_low_shift(reg), buf, len) != 0)        /* spi write */
     {
-        return 0;                                     /* success return 0 */
+        return 1;                                                       /* return error */
     }
+    
+    return 0;                                                           /* success return 0 */
 }
 
 /**

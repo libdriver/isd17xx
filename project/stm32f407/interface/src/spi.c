@@ -102,7 +102,7 @@ uint8_t spi_init(spi_mode_t mode)
     }
     g_spi_handle.Init.NSS = SPI_NSS_SOFT;
     g_spi_handle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
-    g_spi_handle.Init.FirstBit = SPI_FIRSTBIT_LSB;
+    g_spi_handle.Init.FirstBit = SPI_FIRSTBIT_MSB;
     g_spi_handle.Init.TIMode = SPI_TIMODE_DISABLE;
     g_spi_handle.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
     g_spi_handle.Init.CRCPolynomial = 10;
