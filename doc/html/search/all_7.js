@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['receive_5fcallback_196',['receive_callback',['../structisd17xx__handle__s.html#a820f98c864ba6331d88f2106800551e7',1,'isd17xx_handle_s']]]
+  ['libdriver_20isd17xx_0',['LibDriver ISD17XX',['../index.html',1,'']]],
+  ['link_20driver_20function_1',['isd17xx link driver function',['../group__isd17xx__link__driver.html',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gpio_5freset_5fdeinit_30',['gpio_reset_deinit',['../structisd17xx__handle__s.html#a0fa6447866c301420028ce83fbaeeca3',1,'isd17xx_handle_s']]],
-  ['gpio_5freset_5finit_31',['gpio_reset_init',['../structisd17xx__handle__s.html#ade6949465fb2262905a4152fa7663f5e',1,'isd17xx_handle_s']]],
-  ['gpio_5freset_5fwrite_32',['gpio_reset_write',['../structisd17xx__handle__s.html#aa1e29fde0234e2583e180314ef8a0e73',1,'isd17xx_handle_s']]]
+  ['end_5faddress_0',['end_address',['../structisd17xx__handle__s.html#a6ce32cfa5780d0ed0bd9d43cdd7edbb9',1,'isd17xx_handle_s']]],
+  ['example_20driver_20function_1',['isd17xx example driver function',['../group__isd17xx__example__driver.html',1,'']]],
+  ['extend_20driver_20function_2',['isd17xx extend driver function',['../group__isd17xx__extend__driver.html',1,'']]]
 ];
