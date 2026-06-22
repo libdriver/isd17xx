@@ -216,7 +216,7 @@ static uint8_t a_isd17xx_check_status(isd17xx_handle_t *handle, uint32_t prev_ms
     }
     else
     {
-        status1 = ((uint16_t)status_buf[0]) << 8 | status_buf[1];                             /* set the status1 */
+        status1 = ((uint16_t)status_buf[1]) << 8 | status_buf[0];                             /* set the status1 */
     }
 
     if ((status1 & ISD17XX_STATUS1_CMD_ERR) != 0)                                             /* check the command error */
@@ -247,7 +247,7 @@ static uint8_t a_isd17xx_check_status(isd17xx_handle_t *handle, uint32_t prev_ms
             }
             else
             {
-                status1 = ((uint16_t)status_buf[0]) << 8 | status_buf[1];                     /* set the status1 */
+                status1 = ((uint16_t)status_buf[1]) << 8 | status_buf[0];                     /* set the status1 */
                 status2 = status_buf[2];                                                      /* set the status2 */
             }
 
@@ -471,20 +471,9 @@ uint8_t isd17xx_get_status(isd17xx_handle_t *handle, uint16_t *status1, uint8_t 
     }
     else
     {
-        *status1 = ((uint16_t)status[0]) << 8 | status[1];                                /* set the status1 */
+        *status1 = ((uint16_t)status[1]) << 8 | status[0];                                /* set the status1 */
         *status2 = status[2];                                                             /* set the status2 */
-
-        if ((*status1 & (ISD17XX_STATUS1_EOM | ISD17XX_STATUS1_INT)) != 0)                /* check the eom and int */
-        {
-            buf[0] = 0x00;                                                                /* set 0x00 */
-            if (a_isd17xx_spi_write(handle, ISD17XX_COMMAND_CLR_INT, buf, 1) != 0)        /* set clear interrupt */
-            {
-                handle->debug_print("isd17xx: set clear interrupt failed.\n");            /* set clear interrupt failed */
-
-                return 1;                                                                 /* return error */
-            }
-        }
-
+        
         return 0;                                                                         /* success return 0 */
     }
 }
