@@ -588,9 +588,7 @@ uint8_t isd17xx_play(isd17xx_handle_t *handle)
     }
     else
     {
-        handle->delay_ms(500);                                                 /* delay 500ms */
-
-        return 0;                                                              /* success return 0 */
+        return a_isd17xx_check_status(handle, 0, 0, 0, 0);                     /* return status */
     }
 }
 
@@ -626,9 +624,7 @@ uint8_t isd17xx_record(isd17xx_handle_t *handle)
     }
     else
     {
-        handle->delay_ms(500);                                                /* delay 500ms */
-
-        return 0;                                                             /* success return 0 */
+        return a_isd17xx_check_status(handle, 0, 0, 0, 0);                    /* return status */
     }
 }
 
@@ -664,9 +660,8 @@ uint8_t isd17xx_erase(isd17xx_handle_t *handle)
     }
     else
     {
-        handle->delay_ms(500);                                                  /* delay 500ms */
-
-        return 0;                                                               /* success return 0 */
+        return a_isd17xx_check_status(handle, 0, 1,
+                                      ISD17XX_STATUS2_RDY, 6000);               /* return status */
     }
 }
 
@@ -702,9 +697,8 @@ uint8_t isd17xx_global_erase(isd17xx_handle_t *handle)
     }
     else
     {
-        handle->delay_ms(500);                                                    /* delay 500ms */
-
-        return 0;                                                                 /* success return 0 */
+        return a_isd17xx_check_status(handle, 0, 1,
+                                      ISD17XX_STATUS2_RDY, 6000);                 /* return status */
     }
 }
 
@@ -740,9 +734,8 @@ uint8_t isd17xx_next(isd17xx_handle_t *handle)
     }
     else
     {
-        handle->delay_ms(500);                                                /* delay 500ms */
-
-        return 0;                                                             /* success return 0 */
+        return a_isd17xx_check_status(handle, 0, 1, 
+                                      ISD17XX_STATUS2_RDY, 6000);             /* return status */
     }
 }
 
@@ -778,7 +771,7 @@ uint8_t isd17xx_check_memory(isd17xx_handle_t *handle)
     }
     else
     {
-        return a_isd17xx_check_status(handle, 0, 0, 0, 0);                        /* check the status */
+        return a_isd17xx_check_status(handle, 0, 1, ISD17XX_STATUS2_RDY, 3000);   /* return status */
     }
 }
 
@@ -885,7 +878,7 @@ uint8_t isd17xx_set_volume(isd17xx_handle_t *handle, uint8_t vol)
 {
     uint8_t buf[4];
     uint8_t data[4];
-    uint8_t config;
+    uint16_t config;
 
     if (handle == NULL)                                                   /* check handle */
     {
@@ -2103,7 +2096,7 @@ uint8_t isd17xx_load_from_nv(isd17xx_handle_t *handle)
  *            - 1 set play failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
- *            - 4 start_addr >= end_addr
+ *            - 4 start_addr > end_addr
  *            - 5 address is invalid
  * @note      none
  */
@@ -2119,9 +2112,9 @@ uint8_t isd17xx_set_play(isd17xx_handle_t *handle, uint16_t start_addr, uint16_t
     {
         return 3;                                                                  /* return error */
     }
-    if (start_addr >= end_addr)                                                    /* check the address */
+    if (start_addr > end_addr)                                                     /* check the address */
     {
-        handle->debug_print("isd17xx: start_addr >= end_addr.\n");                 /* start_addr >= end_addr */
+        handle->debug_print("isd17xx: start_addr > end_addr.\n");                  /* start_addr > end_addr */
 
         return 4;                                                                  /* return error */
     }
@@ -2144,9 +2137,8 @@ uint8_t isd17xx_set_play(isd17xx_handle_t *handle, uint16_t start_addr, uint16_t
 
         return 1;                                                                  /* return error */
     }
-    handle->delay_ms(500);                                                         /* delay 500ms */
-
-    return 0;                                                                      /* success return 0 */
+    
+    return a_isd17xx_check_status(handle, 0, 0, 0, 0);                             /* return status */
 }
 
 /**
@@ -2159,7 +2151,7 @@ uint8_t isd17xx_set_play(isd17xx_handle_t *handle, uint16_t start_addr, uint16_t
  *            - 1 set record failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
- *            - 4 start_addr >= end_addr
+ *            - 4 start_addr > end_addr
  *            - 5 address is invalid
  * @note      none
  */
@@ -2175,17 +2167,17 @@ uint8_t isd17xx_set_record(isd17xx_handle_t *handle, uint16_t start_addr, uint16
     {
         return 3;                                                                 /* return error */
     }
-    if (start_addr >= end_addr)                                                   /* check the address */
+    if (start_addr > end_addr)                                                    /* check the address */
     {
-        handle->debug_print("isd17xx: start_addr >= end_addr.\n");                /* start_addr >= end_addr */
+        handle->debug_print("isd17xx: start_addr > end_addr.\n");                 /* start_addr > end_addr */
 
         return 4;                                                                 /* return error */
     }
-    if (end_addr > handle->end_address)                                            /* check the address */
+    if (end_addr > handle->end_address)                                           /* check the address */
     {
-        handle->debug_print("isd17xx: address is invalid.\n");                     /* address is invalid */
+        handle->debug_print("isd17xx: address is invalid.\n");                    /* address is invalid */
 
-        return 5;                                                                  /* return error */
+        return 5;                                                                 /* return error */
     }
 
     buf[0] = 0x00;                                                                /* set 0x00 */
@@ -2200,9 +2192,8 @@ uint8_t isd17xx_set_record(isd17xx_handle_t *handle, uint16_t start_addr, uint16
 
         return 1;                                                                 /* return error */
     }
-    handle->delay_ms(500);                                                        /* delay 500ms */
-
-    return 0;                                                                     /* success return 0 */
+    
+    return a_isd17xx_check_status(handle, 0, 0, 0, 0);                            /* return status */
 }
 
 /**
@@ -2215,7 +2206,7 @@ uint8_t isd17xx_set_record(isd17xx_handle_t *handle, uint16_t start_addr, uint16
  *            - 1 set erase failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
- *            - 4 start_addr >= end_addr
+ *            - 4 start_addr > end_addr
  *            - 5 address is invalid
  * @note      none
  */
@@ -2231,9 +2222,9 @@ uint8_t isd17xx_set_erase(isd17xx_handle_t *handle, uint16_t start_addr, uint16_
     {
         return 3;                                                                 /* return error */
     }
-    if (start_addr >= end_addr)                                                   /* check the address */
+    if (start_addr > end_addr)                                                    /* check the address */
     {
-        handle->debug_print("isd17xx: start_addr >= end_addr.\n");                /* start_addr >= end_addr */
+        handle->debug_print("isd17xx: start_addr > end_addr.\n");                 /* start_addr > end_addr */
 
         return 4;                                                                 /* return error */
     }
@@ -2256,9 +2247,8 @@ uint8_t isd17xx_set_erase(isd17xx_handle_t *handle, uint16_t start_addr, uint16_
 
         return 1;                                                                 /* return error */
     }
-    handle->delay_ms(500);                                                        /* delay 500ms */
-
-    return 0;                                                                     /* success return 0 */
+    
+    return a_isd17xx_check_status(handle, 0, 1, ISD17XX_STATUS2_RDY, 6000);       /* return status */
 }
 
 /**
@@ -2394,10 +2384,10 @@ uint8_t isd17xx_init(isd17xx_handle_t *handle)
         return 1;                                                       /* return error */
     }
     
-    handle->gpio_reset_write(1);                                        /* set high */
-    handle->delay_ms(1);                                                /* delay 1ms */
     handle->gpio_reset_write(0);                                        /* set low */
     handle->delay_ms(1);                                                /* delay 1ms */
+    handle->gpio_reset_write(1);                                        /* set high */
+    handle->delay_ms(20);                                               /* delay 20ms */
     
     buf[0] = 0x00;                                                      /* set 0x00 */
     if (a_isd17xx_spi_write(handle, ISD17XX_COMMAND_PU,
@@ -2607,10 +2597,10 @@ uint8_t isd17xx_hardware_reset(isd17xx_handle_t *handle)
         return 3;                       /* return error */
     }
     
-    handle->gpio_reset_write(1);        /* set high */
-    handle->delay_ms(1);                /* delay 1ms */
     handle->gpio_reset_write(0);        /* set low */
     handle->delay_ms(1);                /* delay 1ms */
+    handle->gpio_reset_write(1);        /* set high */
+    handle->delay_ms(20);               /* delay 20ms */
     
     return 0;                           /* success return 0 */
 }

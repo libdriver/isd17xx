@@ -876,7 +876,7 @@ uint8_t isd17xx_load_from_nv(isd17xx_handle_t *handle);
  *            - 1 set play failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
- *            - 4 start_addr >= end_addr
+ *            - 4 start_addr > end_addr
  *            - 5 address is invalid
  * @note      none
  */
@@ -892,7 +892,7 @@ uint8_t isd17xx_set_play(isd17xx_handle_t *handle, uint16_t start_addr, uint16_t
  *            - 1 set record failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
- *            - 4 start_addr >= end_addr
+ *            - 4 start_addr > end_addr
  *            - 5 address is invalid
  * @note      none
  */
@@ -908,7 +908,7 @@ uint8_t isd17xx_set_record(isd17xx_handle_t *handle, uint16_t start_addr, uint16
  *            - 1 set erase failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
- *            - 4 start_addr >= end_addr
+ *            - 4 start_addr > end_addr
  *            - 5 address is invalid
  * @note      none
  */
